@@ -114,7 +114,7 @@ class MapboxMapController extends ChangeNotifier {
   bool _isCameraMoving = false;
 
   /// Returns the most recent camera position reported by the platform side.
-  /// Will be null, if [MapboxMap.trackCameraPosition] is false.
+  /// Will be null, if [WeMapMap.trackCameraPosition] is false.
   CameraPosition get cameraPosition => _cameraPosition;
   CameraPosition _cameraPosition;
 

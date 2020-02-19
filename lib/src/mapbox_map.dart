@@ -6,15 +6,15 @@ part of mapbox_gl;
 
 typedef void MapCreatedCallback(MapboxMapController controller);
 
-class MapboxMap extends StatefulWidget {
-  MapboxMap({
+class WeMapMap extends StatefulWidget {
+  WeMapMap({
     @required this.initialCameraPosition,
     this.onMapCreated,
     this.onStyleLoadedCallback,
     this.gestureRecognizers,
     this.compassEnabled = true,
     this.cameraTargetBounds = CameraTargetBounds.unbounded,
-    this.styleString,
+    this.styleString = "https://apis.wemap.asia/vector-tiles/styles/osm-bright/style.json?key=IqzJukzUWpWrcDHJeDpUPLSGndDx",
     this.minMaxZoomPreference = MinMaxZoomPreference.unbounded,
     this.rotateGesturesEnabled = true,
     this.scrollGesturesEnabled = true,
@@ -144,10 +144,10 @@ class MapboxMap extends StatefulWidget {
   final OnMapIdleCallback onMapIdle;
 
   @override
-  State createState() => _MapboxMapState();
+  State createState() => _WeMapMapState();
 }
 
-class _MapboxMapState extends State<MapboxMap> {
+class _WeMapMapState extends State<WeMapMap> {
   final Completer<MapboxMapController> _controller =
       Completer<MapboxMapController>();
 
@@ -193,7 +193,7 @@ class _MapboxMapState extends State<MapboxMap> {
   }
 
   @override
-  void didUpdateWidget(MapboxMap oldWidget) {
+  void didUpdateWidget(WeMapMap oldWidget) {
     super.didUpdateWidget(oldWidget);
     final _MapboxMapOptions newOptions = _MapboxMapOptions.fromWidget(widget);
     final Map<String, dynamic> updates =
@@ -250,7 +250,7 @@ class _MapboxMapOptions {
     this.attributionButtonMargins,
   });
 
-  static _MapboxMapOptions fromWidget(MapboxMap map) {
+  static _MapboxMapOptions fromWidget(WeMapMap map) {
     return _MapboxMapOptions(
         compassEnabled: map.compassEnabled,
         cameraTargetBounds: map.cameraTargetBounds,
